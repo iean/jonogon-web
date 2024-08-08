@@ -1,10 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IntroductionComponent } from './pages/Introduction.component';
 
 @Component({
   selector: 'jonogon-nx-welcome',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IntroductionComponent],
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -426,6 +427,7 @@ import { CommonModule } from '@angular/common';
             Welcome jonogon 👋
           </h1>
         </div>
+        <jonogon-introduction></jonogon-introduction>
         <!--  HERO  -->
         <div id="hero" class="rounded">
           <div class="text-container">
