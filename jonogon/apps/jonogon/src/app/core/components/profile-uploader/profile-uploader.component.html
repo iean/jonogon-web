@@ -1,0 +1,94 @@
+<p-overlayPanel
+  #avatarOverlay
+  id="profile-upload-overlay"
+  data-testid="profile-upload-overlay">
+  <div
+    class="d-flex justify-content-center align-items-center flex-wrap"
+    id="avatar-overlay-container"
+    data-testid="avatar-overlay-container">
+    @for (avatar of avatars; track $index) {
+      <img
+        [src]="avatar.avatar_image || ''"
+        class="avatar-image"
+        (click)="setProfileAvatar(avatar)" />
+    }
+    <div class="m-2">
+      <p-button
+        severity="info"
+        icon="ri-upload-cloud-2-fill"
+        [label]="'resource_upload.upload_document' | translate"
+        (onClick)="uploadFile()" />
+    </div>
+  </div>
+</p-overlayPanel>
+
+<div
+  class="uploader-container"
+  id="uploader-container"
+  data-testid="uploader-container">
+  @if (isLoading) {
+    <div class="loader-container">
+      <p-progressSpinner
+        styleClass="w-4rem h-4rem"
+        strokeWidth="4"
+        animationDuration=".5s"
+        [style]="loaderStyle"></p-progressSpinner>
+    </div>
+  }
+
+  @if (image) {
+    <img
+      class="profile-image"
+      id="profile-image"
+      data-testid="profile-image"
+      [src]="image"
+      [style]="uploaderStyle"
+      (click)="includeAvatar ? avatarOverlay.toggle($event) : uploadFile()"
+      [ngClass]="{ 'loading-image': isLoading }" />
+  } @else {
+    <div
+      class="d-flex justify-content-center align-items-center profile-image"
+      id="profile-fallback"
+      data-testid="profile-fallback"
+      [style]="uploaderStyle"
+      (click)="includeAvatar ? avatarOverlay.toggle($event) : uploadFile()">
+      <p
+        class="user-initial"
+        id="fallback-initial"
+        data-testid="fallback-initial">
+        {{ fallback }}
+      </p>
+    </div>
+  }
+  @if (canUpload) {
+    <div class="logo-edit-btn">
+      <p-button
+        id="upload-button"
+        data-testid="upload-button"
+        icon="ri-upload-cloud-2-fill"
+        severity="info"
+        [rounded]="true"
+        class="edit-btn"
+        [ngStyle]="buttonStyle"
+        (onClick)="includeAvatar ? avatarOverlay.toggle($event) : uploadFile()"
+        [loading]="isLoading" />
+    </div>
+  }
+</div>
+
+<input
+  type="file"
+  #uploader
+  class="d-none"
+  (change)="fileUploaded($event)"
+  accept="image/*" />
+
+<eino-profile-image-cropper
+  id="image-cropper-component"
+  data-testid="image-cropper-component"
+  [shape]="cropShape"
+  [aspectRatio]="cropAspectRatio"
+  [isVisible]="isCropImageVisible"
+  (closeCropper)="closeImageCropper()"
+  (cropFinished)="cropFinished($event)"
+  [event]="imageChangedEvent" />

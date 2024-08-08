@@ -1,0 +1,78 @@
+:host {
+  ::ng-deep {
+    .tabs > .p-card-body,
+    .tabs > .p-card-body .p-card-content {
+      padding: 0;
+    }
+  }
+}
+
+.scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.page-tabs {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  border-bottom: 2px solid rgb(var(--eino-clr-primary-100));
+
+  &.scrolling {
+    inline-size: fit-content;
+  }
+
+  li {
+    position: relative;
+    padding: var(--eino-space-xxs) var(--eino-space-xxs) 0 var(--eino-space-xxs);
+    transition: all 0.2s ease-in-out;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: rgb(var(--eino-clr-primary-500));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+
+    &:has(a.active)::after {
+      transform: scaleX(1);
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: var(--eino-space-sm) var(--eino-space-xxxl);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease-in-out;
+    border-start-start-radius: var(--eino-theme-rounded-base);
+    border-start-end-radius: var(--eino-theme-rounded-base);
+
+    &.active {
+      background-color: rgb(var(--eino-clr-primary-500));
+      color: rgb(var(--eino-on-primary));
+    }
+  }
+}
+
+#content {
+  padding: var(--eino-space-xs);
+}

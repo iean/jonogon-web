@@ -1,0 +1,146 @@
+@if (!isLoading) {
+  <div class="toolbar">
+    <div class="left toolbar-section">
+      <button
+        [pTooltip]="'pdf_viewer.zoom_out' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        [disabled]="scale === minScale"
+        (click)="zoomOut()">
+        <i class="ri-zoom-out-line"></i>
+      </button>
+      <button
+        [pTooltip]="'pdf_viewer.zoom_in' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        [disabled]="scale === maxScale"
+        (click)="zoomIn()">
+        <i class="ri-zoom-in-line"></i>
+      </button>
+      <button class="text-btn" (click)="menu.toggle($event)">
+        {{ uiScale | translate }}
+        <p-menu
+          #menu
+          [model]="zoomMenu"
+          [popup]="true"
+          appendTo="body"></p-menu>
+        <i class="ri-arrow-down-s-line"></i>
+      </button>
+    </div>
+
+    <div class="center toolbar-section">
+      <button
+        [pTooltip]="'pdf_viewer.previous' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        (click)="goToPreviousPage()"
+        [disabled]="currentPage === 1">
+        <i class="ri-arrow-left-s-line"></i>
+      </button>
+      <span>
+        <input
+          class="current-page"
+          type="text"
+          [value]="currentPage"
+          (keydown)="pageChange($event)" />
+        /
+        {{ totalPage }}
+      </span>
+      <button
+        [pTooltip]="'pdf_viewer.next' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        (click)="goToNextPage()"
+        [disabled]="currentPage === totalPage">
+        <i class="ri-arrow-right-s-line"></i>
+      </button>
+    </div>
+
+    <div class="right toolbar-section">
+      <button
+        [pTooltip]="'pdf_viewer.rotate_anticlock' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        (click)="rotateAntiClockwise()">
+        <i class="ri-anticlockwise-line"></i>
+      </button>
+      <button
+        [pTooltip]="'pdf_viewer.rotate_clock' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        (click)="rotateClockwise()">
+        <i class="ri-clockwise-line"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="toolbar mobile">
+    <div class="left toolbar-section">
+      <button
+        [pTooltip]="'pdf_viewer.previous' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        (click)="goToPreviousPage()"
+        [disabled]="currentPage === 1">
+        <i class="ri-arrow-left-s-line"></i>
+      </button>
+      <span>
+        <input
+          class="current-page"
+          type="text"
+          [value]="currentPage"
+          (keydown)="pageChange($event)" />
+        /
+        {{ totalPage }}
+      </span>
+      <button
+        [pTooltip]="'pdf_viewer.next' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        (click)="goToNextPage()"
+        [disabled]="currentPage === totalPage">
+        <i class="ri-arrow-right-s-line"></i>
+      </button>
+    </div>
+
+    <div class="right toolbar-section">
+      <button
+        [pTooltip]="'pdf_viewer.zoom_out' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        [disabled]="scale === minScale"
+        (click)="zoomOut()">
+        <i class="ri-zoom-out-line"></i>
+      </button>
+      <button
+        [pTooltip]="'pdf_viewer.zoom_in' | translate"
+        positionStyle="fixed"
+        tooltipPosition="bottom"
+        [disabled]="scale === maxScale"
+        (click)="zoomIn()">
+        <i class="ri-zoom-in-line"></i>
+      </button>
+      <button (click)="mobileMenus.toggle($event)">
+        <i class="ri-more-line"></i>
+        <p-menu
+          #mobileMenus
+          [model]="mobileMenu"
+          [popup]="true"
+          appendTo="body"></p-menu>
+      </button>
+    </div>
+  </div>
+}
+
+<div
+  class="renderer"
+  [ngClass]="{
+    newRender: isBloackSize
+  }"
+  #container
+  (wheel)="zoomPage($event)">
+  @if (isLoading) {
+    <p-progressSpinner strokeWidth="5px" />
+  }
+  <canvas #canvas [class.hidden]="isLoading"></canvas>
+</div>

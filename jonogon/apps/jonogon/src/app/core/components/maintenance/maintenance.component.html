@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <header>
+    <img
+      class="logo"
+      src="assets/images/logo/eino-logo-landscape.png"
+      alt="EINO Logo" />
+
+    <div class="language-switcher">
+      <button
+        class="en-btn {{ activeLang === 'en' ? 'active' : '' }}"
+        (click)="changeMessageToEn()">
+        EN
+      </button>
+      <button
+        class="de-btn {{ activeLang === 'de' ? 'active' : '' }}"
+        (click)="changeMessageToDe()">
+        DE
+      </button>
+    </div>
+  </header>
+
+  <div class="message">
+    <img
+      src="assets/images/others/maintenance.webp"
+      alt="A person using a laptop"
+      class="placeholder" />
+
+    <h2>{{ activeMessage.heading }}</h2>
+    <p>
+      {{ activeMessage.paragraph }}
+    </p>
+  </div>
+</div>

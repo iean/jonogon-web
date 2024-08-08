@@ -1,0 +1,20 @@
+{
+  "apiConfig": {
+    "baseUrl": "https://dev-api.jonogon.world/api/v2/",
+    "servicesUrl": "https://dev-services.jonogon.world/api/v1/"
+  },
+  "languageConfig": {
+    "activated_languages": [
+      {
+        "key": "de",
+        "language_key": "languages.de"
+      },
+      {
+        "key": "en",
+        "language_key": "languages.en"
+      }
+    ],
+    "default_language": "en"
+  },
+  "version": "2.47.1"
+}

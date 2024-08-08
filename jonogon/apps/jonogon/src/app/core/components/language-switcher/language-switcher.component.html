@@ -1,0 +1,17 @@
+@if (mode === 'link' && currentlySelectedLanguage) {
+  <p-button #btn (click)="menu.toggle($event)">
+    <span class="language-title">{{
+      currentlySelectedLanguage.language_key | translate
+    }}</span>
+    <i class="ri-arrow-down-s-line"></i>
+  </p-button>
+  <p-menu #menu [appendTo]="'body'" [model]="menuItems" [popup]="true"></p-menu>
+}
+
+@if (mode === 'switch' && currentlySelectedLanguage) {
+  <label class="switch">
+    <input id="language-toggle" type="checkbox" />
+    <span class="off">EN</span>
+    <span class="on">DE</span>
+  </label>
+}

@@ -1,0 +1,7 @@
+@if (control.invalid && control.dirty) {
+  @for (item of messages; track $index) {
+    @if (control.hasError(item.validation)) {
+      <small data-cy="validation-msg">{{ item.message | translate }}</small>
+    }
+  }
+}

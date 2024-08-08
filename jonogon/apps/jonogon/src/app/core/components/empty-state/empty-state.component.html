@@ -1,0 +1,23 @@
+<div
+  class="empty-state-container d-flex align-items-center justify-items-center">
+  <div class="">
+    @if (showImage) {
+      <eino-splash-screen
+        [options]="options"
+        [height]="height"></eino-splash-screen>
+    }
+    <h4 class="empty-state-title">{{ title | translate }}</h4>
+    @if (subtitle) {
+      <p>{{ subtitle }}</p>
+    }
+
+    <div class="container-sm" style="text-align: center">
+      <div class="splash-text">
+        <h1>
+          {{ titleText }}
+        </h1>
+        {{ stepParagraph }}
+      </div>
+    </div>
+  </div>
+</div>

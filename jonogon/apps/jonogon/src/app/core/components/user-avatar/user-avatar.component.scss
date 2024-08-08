@@ -1,0 +1,14 @@
+div {
+  --size: 48px;
+  border-radius: var(--eino-theme-rounded-base);
+  block-size: var(--size);
+  inline-size: var(--size);
+  text-align: center;
+  line-height: var(--size);
+  font-weight: 400;
+  font-size: 1.125rem;
+
+  &.circle {
+    border-radius: 50%;
+  }
+}

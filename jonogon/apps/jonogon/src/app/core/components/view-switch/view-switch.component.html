@@ -1,0 +1,15 @@
+<div
+  class="d-flex justify-content-end align-items-center view-switch-container">
+  <p-selectButton
+    id="view-switch-button"
+    data-testid="view-switch-button"
+    [options]="options"
+    [(ngModel)]="view"
+    optionValue="value"
+    optionLabel="icon"
+    (onChange)="viewUpdated($event)">
+    <ng-template let-item pTemplate>
+      <i [class]="item.icon"></i>
+    </ng-template>
+  </p-selectButton>
+</div>

@@ -1,0 +1,128 @@
+@if (isFeatureMessage) {
+  <div class="card">
+    <div class="image-section">
+      <img
+        src="/assets/images/illustrations/addons.png"
+        alt="Rocket and Laptop" />
+    </div>
+    <div class="content-section">
+      @if (!screenTypeService.isMobile) {
+        <p-button
+          class="close-btn"
+          icon="ri-close-line"
+          [text]="true"
+          (onClick)="closeDialog()"></p-button>
+      }
+      <h1>
+        {{ 'free_user_limitation.title' | translate }}
+      </h1>
+      <p>
+        {{ config.data.message }}
+      </p>
+      <div class="show-more">
+        @if (screenTypeService.isMobile) {
+          <p-button
+            [outlined]="true"
+            label="{{ 'qrcode_details_screen.cancel' | translate }}"
+            (onClick)="closeDialog()"></p-button>
+        }
+        <p-button
+          styleClass="w-full"
+          label="{{
+            showMoreContentVisible
+              ? ('cart.show_less' | translate)
+              : ('cart.show_more' | translate)
+          }}"
+          (click)="toggleShowMore()"></p-button>
+      </div>
+    </div>
+  </div>
+}
+
+@if (showMoreContentVisible) {
+  @if (!config.data.defaultView) {
+    <div class="flex-container">
+      <p-button
+        class="back-button"
+        icon="ri-arrow-left-line"
+        (click)="goBack()"
+        id="back-button"
+        [text]="true"
+        data-testid="back-button">
+      </p-button>
+      <p-button
+        class="close-btn"
+        icon="ri-close-line"
+        [text]="true"
+        (onClick)="closeDialog()"></p-button>
+    </div>
+  }
+
+  <div
+    class="addon-page"
+    id="more-content-wrapper"
+    data-testid="more-content-wrapper">
+    @if (title) {
+      <h1 class="mt-1" id="content-title" data-testid="content-title">
+        {{ 'free_user_limitation.title' | translate }}
+      </h1>
+    }
+    <p-divider id="divider" data-testid="divider"></p-divider>
+
+    <div class="accordion-wrapper">
+      <p-accordion class="mt-3" id="accordion" data-testid="accordion">
+        @for (panel of panels; track panel) {
+          <p-accordionTab
+            [header]="panel.name | translate"
+            [selected]="panel.active"
+            id="accordion-tab"
+            data-testid="accordion-tab">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-7">
+                  <p
+                    [innerHTML]="panel.message | translate"
+                    id="accordion-tab-message"
+                    data-testid="accordion-tab-message"></p>
+                </div>
+
+                <div class="col-12 col-md-5 text-center">
+                  <img
+                    [src]="panel.image"
+                    alt="addon image"
+                    class="addon-img mb-3"
+                    id="accordion-tab-image"
+                    data-testid="accordion-tab-image" />
+
+                  <div class="action-btn-wrapper">
+                    @if (canAddToCart && !config.data.defaultView) {
+                      <p-button
+                        class="action-btn"
+                        label="{{ 'cart.add_cart' | translate }}"
+                        [loading]="isAddCartLoading"
+                        [style]="{ width: '100%' }"
+                        (click)="addToCart()"
+                        id="add-cart-button"
+                        data-testid="add-cart-button"></p-button>
+                    }
+                    @if (canPurchaseAddon) {
+                      <p-button
+                        severity="success"
+                        class="action-btn"
+                        label="{{ 'cart.purchase' | translate }}"
+                        [loading]="isPurchaseLoading"
+                        [style]="{ width: '100%' }"
+                        (click)="purchaseAddOn()"
+                        id="purchase-button"
+                        data-testid="purchase-button"></p-button>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-accordionTab>
+        }
+      </p-accordion>
+    </div>
+  </div>
+}

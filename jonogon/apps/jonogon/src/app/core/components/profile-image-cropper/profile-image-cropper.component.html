@@ -1,0 +1,28 @@
+<p-dialog
+  [modal]="true"
+  [breakpoints]="breakpoints"
+  [(visible)]="isVisible"
+  (onHide)="closeImageCropper()"
+  [header]="'whitelabeling.select_banner.crop_image' | translate">
+  <div class="mt-2">
+    <image-cropper
+      id="image-cropper"
+      data-testid="image-cropper"
+      class="img-cropper"
+      [imageChangedEvent]="event"
+      [maintainAspectRatio]="true"
+      [roundCropper]="shape === 'CIRCLE'"
+      [aspectRatio]="aspectRatio"
+      format="png"
+      (imageCropped)="imageCropped($event)" />
+  </div>
+  <p-divider />
+  <div class="d-flex justify-content-end align-items-center">
+    <p-button
+      id="image-cropper-submit"
+      data-testid="image-cropper-submit"
+      severity="primary"
+      [label]="'modal_text.ok' | translate"
+      (onClick)="cropCompleted()" />
+  </div>
+</p-dialog>

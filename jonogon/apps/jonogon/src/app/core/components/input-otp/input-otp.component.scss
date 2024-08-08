@@ -1,0 +1,19 @@
+@import 'media';
+
+@layer primeng {
+}
+
+.p-inputotp-input {
+  text-align: center;
+  margin: 4px;
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgb(var(--eino-clr-primary-100));
+
+  @include bp-down($sm) {
+    max-width: 30px;
+    max-height: 30px;
+    margin: 2px;
+  }
+}

@@ -1,0 +1,13 @@
+.lotti-container {
+  height: 100%;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.align-items-center {
+  align-items: center !important;
+  display: flex !important;
+}

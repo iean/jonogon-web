@@ -1,0 +1,16 @@
+<p-card styleClass="tabs">
+    <div class="scroll-wrapper" #s>
+        <ul class="page-tabs" [class.scrolling]="s.clientWidth < s.scrollWidth">
+            @for (tab of tabs; track $index) { @if (tab.isEnabled() | async) {
+            <li>
+                <a class="tab-link" [routerLink]="tab.path" [routerLinkActive]="['active']">
+              {{ tab.title | translate }}
+            </a>
+            </li>
+            } }
+        </ul>
+    </div>
+    <section id="content">
+        <router-outlet />
+    </section>
+</p-card>

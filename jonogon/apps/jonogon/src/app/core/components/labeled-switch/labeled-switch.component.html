@@ -1,0 +1,12 @@
+<span class="e-switch e-switch-wrapper" (click)="toggleValue()">
+  <span class="e-switch-item e-switch-item-false" [class.active]="!value">
+    {{ falseLabel() }}
+  </span>
+  <span class="e-switch-item e-switch-item-true" [class.active]="value">{{
+    trueLabel()
+  }}</span>
+  <span
+    class="e-switch-active-indicator"
+    [class.left]="!value"
+    [class.right]="value"></span>
+</span>

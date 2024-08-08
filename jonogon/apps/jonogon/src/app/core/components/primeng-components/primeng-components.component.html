@@ -1,0 +1,333 @@
+<div class="container p-5 components">
+  <div class="my-3">
+    <div class="card">
+      <p-table
+        [value]="customers"
+        [paginator]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10, 25, 50]"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 25%">Name</th>
+            <th style="width: 25%">Country</th>
+            <th style="width: 25%">Company</th>
+            <th style="width: 25%">Representative</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+          <tr>
+            <td>dfsgsgf</td>
+            <td>wefewfewfewg</td>
+            <td>wefwefew</td>
+            <td>ewfwefwefwef</td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+          <p-button
+            type="button"
+            icon="pi pi-plus"
+            styleClass="p-button-text"
+          ></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+          <p-button
+            type="button"
+            icon="pi pi-cloud"
+            styleClass="p-button-text"
+          ></p-button>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <p-button label="Primary"></p-button>
+    <p-button label="Secondary" severity="secondary"></p-button>
+    <p-button label="Success" severity="success"></p-button>
+    <p-button label="Info" severity="info"></p-button>
+    <p-button label="Warning" severity="warning"></p-button>
+    <p-button label="Help" severity="help"></p-button>
+    <p-button label="Danger" severity="danger"></p-button>
+  </div>
+
+  <div class="my-3">
+    <p-button label="Primary" [rounded]="true"></p-button>
+    <p-button
+      label="Secondary"
+      [rounded]="true"
+      severity="secondary"
+    ></p-button>
+    <p-button label="Success" [rounded]="true" severity="success"></p-button>
+    <p-button label="Info" [rounded]="true" severity="info"></p-button>
+    <p-button label="Warning" [rounded]="true" severity="warning"></p-button>
+    <p-button label="Help" [rounded]="true" severity="help"></p-button>
+    <p-button label="Danger" [rounded]="true" severity="danger"></p-button>
+  </div>
+
+  <div class="my-3">
+    <p-button label="Primary" [outlined]="true"></p-button>
+    <p-button
+      label="Secondary"
+      [outlined]="true"
+      severity="secondary"
+    ></p-button>
+    <p-button label="Success" [outlined]="true" severity="success"></p-button>
+    <p-button label="Info" [outlined]="true" severity="info"></p-button>
+    <p-button label="Warning" [outlined]="true" severity="warning"></p-button>
+    <p-button label="Help" [outlined]="true" severity="help"></p-button>
+    <p-button label="Danger" [outlined]="true" severity="danger"></p-button>
+  </div>
+
+  <div class="my-3">
+    <p-button icon="ri-qr-code-line"></p-button>
+    <p-button label="Primary"></p-button>
+  </div>
+
+  <div class="my-3">
+    <p-slider [(ngModel)]="value"></p-slider>
+  </div>
+
+  <div class="my-3">
+    <!-- <div class="card">
+          <p-speedDial [model]="menus" direction="down" showIcon="pi pi-plus-circle" buttonClassName="p-button-dark" ></p-speedDial>
+  </div> -->
+  </div>
+
+  <div class="my-3">
+    <div class="card">
+      <p-steps [model]="items" [readonly]="true"></p-steps>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <div class="card">
+      <p-panel>
+        <ng-template pTemplate="header">
+          <span class="text-primary font-semibold text-xl"
+            >Header</span
+          ></ng-template
+        >
+        Body Content
+      </p-panel>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <p-accordion [activeIndex]="0">
+      <p-accordionTab header="Header I">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </p-accordionTab>
+      <p-accordionTab header="Header II">
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+          qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit,
+          sed quia non numquam eius modi.
+        </p>
+      </p-accordionTab>
+      <p-accordionTab header="Header III">
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui
+          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+          et quas molestias excepturi sint occaecati cupiditate non provident,
+          similique sunt in culpa qui officia deserunt mollitia animi, id est
+          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+          cumque nihil impedit quo minus.
+        </p>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+
+  <div class="my-3 p-5" style="background-color: rgb(110, 110, 110)">
+    <div class="card flex justify-content-center">
+      <p-menu [model]="items"></p-menu>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <p-button label="Emails" badge="8"></p-button>
+    <p-button
+      label="Messages"
+      icon="pi pi-users"
+      styleClass="p-button-warning"
+      badge="8"
+      badgeClass="p-badge-danger"
+    ></p-button>
+  </div>
+
+  <div class="my-3">
+    <div class="flex align-items-center gap-1">
+      <p-checkbox name="group1" value="New York" inputId="ny"></p-checkbox>
+      <label for="ny">New York</label>
+    </div>
+
+    <div class="flex align-items-center gap-1">
+      <p-checkbox name="group1" value="San Francisco" inputId="sf"></p-checkbox>
+      <label for="sf">San Francisco</label>
+    </div>
+
+    <div class="flex align-items-center gap-1">
+      <p-checkbox name="group1" value="Los Angeles" inputId="la"></p-checkbox>
+      <label for="la">Los Angeles</label>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <p-inputSwitch
+      [(ngModel)]="checked"
+      (click)="inputSwitch()"
+    ></p-inputSwitch>
+  </div>
+
+  <div class="my-3">
+    <input type="text" pInputText />
+
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText />
+    </span>
+  </div>
+
+  <div class="my-3">
+    <p-password [toggleMask]="true"></p-password>
+  </div>
+
+  <div class="my-3">
+    <div class="flex flex-wrap gap-3">
+      <div class="flex align-items-center">
+        <p-radioButton
+          name="pizza"
+          value="Cheese"
+          inputId="ingredient1"
+        ></p-radioButton>
+        <label for="ingredient1" class="ml-2">Cheese</label>
+      </div>
+
+      <div class="flex align-items-center">
+        <p-radioButton
+          name="pizza"
+          value="Mushroom"
+          inputId="ingredient2"
+        ></p-radioButton>
+        <label for="ingredient2" class="ml-2">Mushroom</label>
+      </div>
+
+      <div class="flex align-items-center">
+        <p-radioButton
+          name="pizza"
+          value="Pepper"
+          inputId="ingredient3"
+        ></p-radioButton>
+        <label for="ingredient3" class="ml-2">Pepper</label>
+      </div>
+
+      <div class="flex align-items-center">
+        <p-radioButton
+          name="pizza"
+          value="Onion"
+          inputId="ingredient4"
+        ></p-radioButton>
+        <label for="ingredient4" class="ml-2">Onion</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <div class="card flex justify-content-center">
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        [first]="first"
+        [rows]="rows"
+        [totalRecords]="120"
+        [rowsPerPageOptions]="[10, 20, 30]"
+      ></p-paginator>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <p-sidebar [(visible)]="sidebarVisible">
+      <h3>Sidebar</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </p-sidebar>
+    <p-button
+      (click)="sidebarVisible = true"
+      icon="pi pi-arrow-right"
+    ></p-button>
+  </div>
+
+  <div class="my-3">
+    <input
+      type="text"
+      pInputText
+      pTooltip="Enter your username"
+      placeholder="hover to display tooltip"
+    />
+  </div>
+
+  <!-- <div class="my-3">
+  
+<p-toast></p-toast>
+<p-menu #menu  [popup]="true"></p-menu>
+<button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars" label="Show"></button>
+</div> -->
+
+  <div class="my-3">
+    <p-progressSpinner
+      styleClass="w-4rem h-4rem"
+      strokeWidth="8"
+      fill="var(--surface-ground)"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+  </div>
+
+  <div class="my-3">
+    <div class="card flex justify-content-center gap-2">
+      <p-tag value="Primary" [rounded]="true"></p-tag>
+      <p-tag severity="success" value="Success" [rounded]="true"></p-tag>
+      <p-tag severity="info" value="Info" [rounded]="true"></p-tag>
+      <p-tag severity="warning" value="Warning" [rounded]="true"></p-tag>
+      <p-tag severity="danger" value="Danger" [rounded]="true"></p-tag>
+    </div>
+
+    <div class="card flex justify-content-center gap-2">
+      <p-tag icon="pi pi-user" value="Primary"></p-tag>
+      <p-tag icon="pi pi-check" severity="success" value="Success"></p-tag>
+      <p-tag icon="pi pi-info-circle" severity="info" value="Info"></p-tag>
+      <p-tag
+        icon="pi pi-exclamation-triangle"
+        severity="warning"
+        value="Warning"
+      ></p-tag>
+      <p-tag icon="pi pi-times" severity="danger" value="Danger"></p-tag>
+    </div>
+
+    <div class="card flex justify-content-center gap-2">
+      <p-tag value="Primary"></p-tag>
+      <p-tag severity="success" value="Success"></p-tag>
+      <p-tag severity="info" value="Info"></p-tag>
+      <p-tag severity="warning" value="Warning"></p-tag>
+      <p-tag severity="danger" value="Danger"></p-tag>
+    </div>
+  </div>
+</div>

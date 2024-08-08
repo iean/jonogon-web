@@ -1,0 +1,20 @@
+@if (image) {
+  <div
+    [ngStyle]="{
+      'background-image': 'url(' + image + ')',
+      'background-size': 'cover',
+      'background-position': 'center'
+    }"
+    class="{{ shape }} user-avatar"></div>
+} @else {
+  <div
+    [ngStyle]="{
+      color: color.fg,
+      backgroundColor: color.bg
+    }"
+    class="{{ shape }} user-avatar">
+    @if (initials) {
+      <span>{{ initials | uppercase }}</span>
+    }
+  </div>
+}

@@ -1,0 +1,60 @@
+.uploader-container {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-image {
+  width: 152px;
+  height: 152px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid gray;
+  background-color: var(--gray-600);
+  color: white;
+}
+
+.profile-image:hover {
+  filter: brightness(70%);
+  cursor: pointer;
+}
+
+.edit-btn::ng-deep .p-button {
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+.loading-image {
+  filter: brightness(60%);
+}
+
+.user-initial {
+  font-size: 5em;
+}
+
+.avatar-image {
+  max-width: 70px;
+  height: auto;
+  cursor: pointer;
+  margin: var(--eino-space-xxs);
+}
+
+.loader-container {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 15rem;
+  height: 15rem;
+  z-index: 1;
+}
+
+#avatar-overlay-container {
+  max-width: 75vw;
+}
+
+.logo-edit-btn {
+  width: fit-content;
+  position: absolute;
+  left: 93px;
+  right: 0px;
+  bottom: -4px;
+  margin: auto;
+}

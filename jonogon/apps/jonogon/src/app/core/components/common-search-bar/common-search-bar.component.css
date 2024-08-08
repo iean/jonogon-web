@@ -1,0 +1,27 @@
+.search-wrapper {
+  width: 100%;
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+input.search {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(211, 211, 211, 0.3);
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+  ::ng-deep .search-wrapper > .p-button {
+    width: 100% !important;
+  }
+}
+
+::ng-deep .search-wrapper > .p-button {
+  width: 99%;
+}
+
+.search-employee {
+  margin-bottom: 0.5rem;
+}
